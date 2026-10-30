@@ -1,0 +1,25 @@
+{
+  "name": "discord-jobs-and-dsa-bots",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Two Discord bots: an Apify-powered job scraper that posts to frontend/backend/fullstack channels, and a per-person DSA daily question bot.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "jobs": "node src/jobs-bot/index.js",
+    "dsa": "node src/dsa-bot/index.js",
+    "deploy:jobs": "node src/jobs-bot/deploy-commands.js",
+    "deploy:dsa": "node src/dsa-bot/deploy-commands.js",
+    "deploy": "npm run deploy:jobs && npm run deploy:dsa",
+    "doctor": "node src/doctor.js",
+    "dev:jobs": "node --watch src/jobs-bot/index.js",
+    "dev:dsa": "node --watch src/dsa-bot/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  }
+}
